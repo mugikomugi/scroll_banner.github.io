@@ -1,0 +1,357 @@
+@charset 'utf-8';
+
+/*--------------------
+手動式スライド
+--------------------*/
+h1,
+h2 {
+  text-align: center;
+}
+
+h1 {
+  width: 100%;
+  background: #fa7488;
+  color: #fff;
+  font-size: 26px;
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+
+footer {
+  background: #fa7488;
+  color: #fff;
+  text-align: center;
+}
+
+footer small {
+  font-size: 12px;
+  padding: 4px 0;
+}
+
+.mb50 {
+  margin-bottom: 70px;
+}
+
+.container {
+  width: 840px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.slideWrap01,
+.slideWrap02,
+.slideWrap03 {
+  position: relative;
+  /* 余白20pxプラス */
+  width: 840px;
+}
+
+.panelFram {
+  width: 840px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  /* Firefoxはここでないとscrollbar指定できない */
+  scrollbar-width: thin;
+  scrollbar-color: #ffb6c1 rgb(235, 234, 234);
+  /* //Firefox */
+  padding-bottom: 20px;
+  /* スクロールバーの移動調節 スクロール表示領域にrelative指定必須 */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.panelFram::-webkit-scrollbar {
+  height: 4px;
+}
+
+/* scrollbarカスタマイズ */
+.panelFram::-webkit-scrollbar-track {
+  background: rgb(234, 234, 234);
+}
+
+.panelFram::-webkit-scrollbar-thumb {
+  background: #ffb6c1;
+  border-radius: 6px;
+}
+
+#sliderPanel {
+  display: flex;
+  width: calc(420px * 6);
+}
+
+#sliderPanel li {
+  padding: 0 10px;
+  /* スクロールバーの1ブロックづつ移動させる */
+  scroll-snap-align: start;
+}
+
+/* width:400pxと margin-right:20pxが一つ分のスライドサイズ*/
+#sliderPanel a {
+  width: 400px;
+  color: #4d4d4d;
+  display: block;
+  border: solid 1px #ccc;
+}
+
+.img {
+  width: calc(100% / 2);
+  height: auto;
+  float: left;
+}
+
+.bannerText {
+  width: calc(100% / 2);
+  padding: 10px 15px 10px 5px;
+  float: left;
+}
+
+/* 矢印ナビ */
+#prev_w,
+#next_w,
+#prev_w2,
+#next_w2,
+#prev_w3,
+#next_w3 {
+  width: 40px;
+  height: 40px;
+  background: #565656;
+  text-align: center;
+  position: absolute;
+  top: calc((200px - 40px) / 2);
+  cursor: pointer;
+  margin: 0;
+}
+
+#prev_w3,
+#next_w3 {
+  top: calc((129px - 40px) / 2);
+}
+
+#prev_w img,
+#next_w img,
+#prev_w2 img,
+#next_w2 img,
+#prev_w3 img,
+#next_w3 img {
+  width: 30px;
+  padding-top: 5px;
+}
+
+#prev_w,
+#prev_w2,
+#prev_w3 {
+  left: -40px;
+}
+
+#next_w {
+  right: -60px;
+}
+
+#next_w2,
+#next_w3 {
+  right: -40px;
+}
+
+/*---------- カルーセルスライド ----------*/
+#thumb2 {
+  display: none;
+}
+
+.panelFram2,
+.panelFram3 {
+  width: 840px;
+  overflow: hidden;
+}
+
+#sliderPanel2 {
+  display: flex;
+  width: calc(420px * 3);
+}
+
+#sliderPanel3 {
+  display: flex;
+  width: calc(280px * 4);
+}
+
+#sliderPanel2 li,
+#sliderPanel3 li {
+  padding: 0 10px;
+}
+
+#sliderPanel2 a,
+#sliderPanel3 a {
+  width: 400px;
+  color: #4d4d4d;
+  display: block;
+  border: solid 1px #ccc;
+}
+
+#sliderPanel3 a {
+  width: 260px;
+}
+
+#sliderPanel3 h3 {
+  font-size: 16px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+#sliderPanel3 .bannerText p {
+  font-size: 14px;
+  margin: 0;
+}
+
+#thumb3 a {
+  display: none;
+}
+
+#thumb3 {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#thumb3 li {
+  width: 10px;
+  height: 10px;
+  background: #ffb6c1;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+#thumb3 .act3 {
+  background: #fa7488;
+}
+
+@media screen and (max-width: 990px) and (min-width: 768px) {
+
+  .container,
+  .slideWrap01,
+  .slideWrap02,
+  .slideWrap03 {
+    width: 100%;
+  }
+
+  .panelFram,
+  .panelFram2,
+  .panelFram3 {
+    width: 100%;
+  }
+
+  #sliderPanel {
+    width: calc((50% * 6) - 20px);
+  }
+
+  #sliderPanel2 {
+    width: calc((50% * 3) - 20px);
+  }
+
+  #sliderPanel3 {
+    width: calc((50% * 4) - 20px);
+  }
+
+  #sliderPanel2 li {
+    width: calc((100% / 3));
+  }
+
+  #sliderPanel3 li {
+    width: calc((100% / 4));
+  }
+
+  #sliderPanel a,
+  #sliderPanel2 a,
+  #sliderPanel3 a {
+    width: 100%;
+  }
+
+  #prev_w,
+  #prev_w2,
+  #prev_w3 {
+    left: 0;
+  }
+
+  #next_w,
+  #next_w2,
+  #next_w3 {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .container,
+  .slideWrap01,
+  .slideWrap02,
+  .slideWrap03 {
+    width: 100%;
+  }
+
+  .panelFram,
+  .panelFram2,
+  .panelFram3 {
+    width: 100%;
+  }
+
+  .panelFram2,
+  .panelFram3 {
+    padding-left: 10px;
+  }
+
+  #sliderPanel {
+    width: calc((100% * 6) - 20px);
+  }
+
+  #sliderPanel2 {
+    width: calc((100% * 3) - 20px);
+  }
+
+  #sliderPanel3 {
+    width: calc((100% * 4) - 20px);
+  }
+
+  #sliderPanel2 li {
+    width: calc(100% / 3);
+  }
+
+  #sliderPanel3 li {
+    width: calc(100% / 4);
+  }
+
+  #sliderPanel a,
+  #sliderPanel2 a,
+  #sliderPanel3 a {
+    width: 100%;
+  }
+
+  .bannerText h3 {
+    margin: 5px 0;
+  }
+
+  .bannerText p {
+    margin: 0 10px 0 0;
+    font-size: 80%;
+  }
+
+  #prev_w,
+  #next_w,
+  #prev_w2,
+  #next_w2,
+  #prev_w3,
+  #next_w3 {
+    top: calc((100% - 40px) / 2);
+  }
+
+  #prev_w,
+  #prev_w2,
+  #prev_w3 {
+    left: 0;
+  }
+
+  #next_w,
+  #next_w2,
+  #next_w3 {
+    right: 0;
+  }
+
+
+}
