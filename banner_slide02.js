@@ -126,10 +126,16 @@ $(function () {
   //指が離れた時の処理
   function endSwipe() {
     if (moveX == 'left') {
-      nextSlide();
+      if (flag == true) {
+        flag = false;
+        nextSlide();
+      }
     }
     else if (moveX == 'right') {
-      prevSlid();
+      if (flag == true) {
+        flag = false;
+        prevSlid();
+      }
     }
   }
 
