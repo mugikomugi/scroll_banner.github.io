@@ -74,7 +74,10 @@ $(function () {
 
   //自動スライド
   timerID = setInterval(function () {
-    nextSlide();
+    if (flag == true) {
+      flag = false;
+      nextSlide();
+    }
   }, 3000);
 
   next.on('click', function () {
@@ -188,11 +191,17 @@ $(function () {
   function endSwipe() {
     if (moveX == 'left') {
       clearInterval(timerID);
-      nextSlide();
+      if (flag == true) {
+        flag = false;
+        nextSlide();
+      }
     }
     else if (moveX == 'right') {
       clearInterval(timerID);
-      prevSlid();
+      if (flag == true) {
+        flag = false;
+        prevSlid();
+      }
     }
   }
 
